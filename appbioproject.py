@@ -7,8 +7,8 @@ import re
 import networkx as nx
 
 network_data_frame = pd.read_csv('9606.protein.links.v11.0.txt.gz', sep=' ', dtype = str, header = 0)
-network_data_frame['protein1'] = [re.sub("9606.", "", x) for x in network_data_frame["protein1"]]
-network_data_frame['protein2'] = [re.sub("9606.", "", x) for x in network_data_frame["protein2"]]
+network_data_frame.loc[:,'protein1'] = [re.sub("9606.", "", x) for x in network_data_frame.loc[:,"protein1"]]
+network_data_frame.loc[:,'protein2'] = [re.sub("9606.", "", x) for x in network_data_frame.loc[:,"protein2"]]
 
 #make the whole network
 network = nx.from_pandas_edgelist(network_data_frame, source = 'protein1', target = 'protein2')
