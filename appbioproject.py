@@ -37,4 +37,4 @@ final = pd.concat([hd_df,ld_df], axis=0)
 plot = final.groupby(['Degree', 'Pfam ID'])['Protein stable ID'].count().to_frame(name = "Protein stable IDs").reset_index()
 
 sns.boxplot(x = "Degree", y = "Protein stable IDs", data = plot)
-plt.savefig('barplot_appbio.png', dpi=300, bbox_inches='tight')
+plt.savefig('boxplot_appbio.png', dpi=300, bbox_inches='tight')
